@@ -1,3 +1,5 @@
+package lecture;
+
 public class CustomDoubleLinkedList<T> {
 
     public class Node<T> {

@@ -1,3 +1,5 @@
+package lecture;
+
 public class CustomLinkedList<T> {
 
     public class Node<T> {

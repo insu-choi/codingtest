@@ -1,3 +1,5 @@
+package lecture;
+
 public class LinkedListLecture {
     public static void main(String[] args) {
         CustomLinkedList<Integer> customLinkedList = new CustomLinkedList<>();
