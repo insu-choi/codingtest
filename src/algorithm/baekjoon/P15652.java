@@ -3,23 +3,24 @@ package algorithm.baekjoon;
 import java.io.*;
 import java.util.StringTokenizer;
 
-public class PBase {
+public class P15652 {
     static FastReader scan = new FastReader();
     static StringBuilder sb = new StringBuilder();
 
     /* 문제 설명 */
     /*
+https://www.acmicpc.net/problem/15652
+1부터 N까지 자연수 중에서 M개를 고른 수열
+같은 수를 여러 번 골라도 된다.
+고른 수열은 비내림차순이어야 한다.
 
+중복 가능
+순서 상관 없음
      */
 
     /* input 예시 */
     /*
-
-     */
-
-    /* output 예시 */
-    /*
-
+4 2
      */
 
     /* 문제 접근 방법 */
@@ -29,15 +30,35 @@ public class PBase {
 
     /* 문제 주요 변수 */
     static int N;
+    static int M;
+    static int[] selected;
 
     /* input */
     static void input() {
+        N = scan.nextInt();
+        M = scan.nextInt();
+        selected = new int[M];
+    }
 
+    static void rec_func(int index, int start) {
+        if (index == M) {
+            for (int i = 0; i < M; i++) {
+                sb.append(selected[i]).append(" ");
+            }
+            sb.append("\n");
+            return;
+        }
+
+        for (int i = start; i < N; i++) {
+            selected[index] = i + 1;
+            rec_func(index + 1, i);
+            selected[index] = 0;
+        }
     }
 
     /* solve problem */
     static void pro() {
-
+        rec_func(0, 0);
     }
 
     public static void main(String[] args) {
